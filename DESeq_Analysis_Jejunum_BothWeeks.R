@@ -27,6 +27,6 @@ resSig = na.omit(resSig)
 head(resSig[order(resSig$pval),]) # Most significantly differentially expressed genes
 head(resSig[order(resSig$foldChange, -resSig$baseMean ), ] ) # Most strongly down-regulated significant genes
 head(resSig[order(-resSig$foldChange, -resSig$baseMean ), ] ) # Most strongly up-regulated significant genes
-write.table(resSig[order(resSig$pval), ], file="2Wk+27WkSigDifExp.tsv", quote=FALSE, sep="\t" )
-write.table(resSig[order(resSig$foldChange, -resSig$baseMean ), ], file="2Wk+27WkSigMostDownReg.tsv", quote=FALSE, sep="\t" )
-write.table(resSig[order(-resSig$foldChange, -resSig$baseMean ), ], file="2Wk+27WkSigMostUpReg.tsv", quote=FALSE, sep="\t" )
+write.table(resSig[order(resSig$pval), ], file="2Wk+27WkSigDifExp.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig[order(resSig$foldChange, -resSig$baseMean ), ], file="2Wk+27WkSigMostDownReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig[order(-resSig$foldChange, -resSig$baseMean ), ], file="2Wk+27WkSigMostUpReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )

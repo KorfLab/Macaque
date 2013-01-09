@@ -13,7 +13,7 @@ cds = newCountDataSet(countTable, condition)
 cds = estimateSizeFactors(cds)
 sizeFactors(cds)
 #head( counts( cds, normalized=TRUE) ) # Prints library-normalized read counts
-cds = estimateDispersions(cds)
+cds = estimateDispersions(cds, method="blind", sharingMode="fit-only")
 #plotDispEsts(cds) # Plot dispersion estimates
 
 # Examine differential expression between 10wk infected vs non-infected ileum
@@ -28,6 +28,6 @@ resSig2wk = na.omit(resSig2wk)
 head(resSig2wk[order(resSig2wk$pval),]) # Most significantly differentially expressed genes
 head(resSig2wk[order(resSig2wk$foldChange, -resSig2wk$baseMean ), ] ) # Most strongly down-regulated significant genes
 head(resSig2wk[order(-resSig2wk$foldChange, -resSig2wk$baseMean ), ] ) # Most strongly up-regulated significant genes
-write.table(resSig2wk[order(resSig2wk$pval), ], file="IR715_10WkSigDifExp.tsv", quote=FALSE, sep="\t" )
-write.table(resSig2wk[order(resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="IR715_10WkSigMostDownReg.tsv", quote=FALSE, sep="\t" )
-write.table(resSig2wk[order(-resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="IR715_10WkSigMostUpReg.tsv", quote=FALSE, sep="\t" )
+write.table(resSig2wk[order(resSig2wk$pval), ], file="IR715_10WkSigDifExp.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig2wk[order(resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="IR715_10WkSigMostDownReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig2wk[order(-resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="IR715_10WkSigMostUpReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )

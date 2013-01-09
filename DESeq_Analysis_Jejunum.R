@@ -27,9 +27,9 @@ resSig2wk = na.omit(resSig2wk)
 head(resSig2wk[order(resSig2wk$pval),]) # Most significantly differentially expressed genes
 head(resSig2wk[order(resSig2wk$foldChange, -resSig2wk$baseMean ), ] ) # Most strongly down-regulated significant genes
 head(resSig2wk[order(-resSig2wk$foldChange, -resSig2wk$baseMean ), ] ) # Most strongly up-regulated significant genes
-write.table(resSig2wk[order(resSig2wk$pval), ], file="2WkSigDifExp.tsv", quote=FALSE, sep="\t" )
-write.table(resSig2wk[order(resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="2WkSigMostDownReg.tsv", quote=FALSE, sep="\t" )
-write.table(resSig2wk[order(-resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="2WkSigMostUpReg.tsv", quote=FALSE, sep="\t" )
+write.table(resSig2wk[order(resSig2wk$pval), ], file="2WkSigDifExp.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig2wk[order(resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="2WkSigMostDownReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig2wk[order(-resSig2wk$foldChange, -resSig2wk$baseMean ), ], file="2WkSigMostUpReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )
 
 # Examine differential expression between 27wk infected vs non-infected jejunum 
 res27wk = nbinomTest(cds, "untreated", "treated27wk")
@@ -41,6 +41,6 @@ resSig27wk = na.omit(resSig27wk)
 head(resSig27wk[order(resSig27wk$pval),]) # Most significantly differentially expressed genes
 head(resSig27wk[order(resSig27wk$foldChange, -resSig27wk$baseMean ), ] ) # Most strongly down-regulated significant genes
 head(resSig27wk[order(-resSig27wk$foldChange, -resSig27wk$baseMean ), ] ) # Most strongly up-regulated significant genes
-write.table(resSig27wk[order(resSig27wk$pval), ], file="27WkSigDifExp.tsv", quote=FALSE, sep="\t" )
-write.table(resSig27wk[order(resSig27wk$foldChange, -resSig27wk$baseMean ), ], file="27WkSigMostDownReg.tsv", quote=FALSE, sep="\t" )
-write.table(resSig27wk[order(-resSig27wk$foldChange, -resSig27wk$baseMean ), ], file="27WkSigMostUpReg.tsv", quote=FALSE, sep="\t" )
+write.table(resSig27wk[order(resSig27wk$pval), ], file="27WkSigDifExp.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig27wk[order(resSig27wk$foldChange, -resSig27wk$baseMean ), ], file="27WkSigMostDownReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )
+write.table(resSig27wk[order(-resSig27wk$foldChange, -resSig27wk$baseMean ), ], file="27WkSigMostUpReg.tsv", quote=FALSE, sep="\t", row.names = FALSE )

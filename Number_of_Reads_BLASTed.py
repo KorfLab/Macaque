@@ -25,7 +25,7 @@ def Output_Missing_Reads(fastq_f, out_f, missing_read_set):
 	line_num = 0
 	with gzip.open(out_f, 'wb') as outfile:
 		for line in infile:
-			if fastq_f[-3:] == ".gz": line = str(line, encoding='utf8')
+			if fastq_f[-3:] == ".gz": line = line.decode('utf-8')
 			if line[:1] == "@" and line.rstrip()[1:] in missing_read_set:
 				line_num += 1
 				outfile.write(bytes(line,"UTF-8"))
@@ -86,7 +86,7 @@ with open(out_f, 'w') as outfile:
 		else:
 			infile = open(fastq_f)
 		for line in infile:
-			if fastq_f[-3:] == ".gz": line = str(line, encoding='utf8')
+			if fastq_f[-3:] == ".gz": line = line.decode('utf-8')
 			line = line.strip()
 			if line[:1] == "@":
 				fastq_list.append(line[1:])
@@ -99,7 +99,7 @@ with open(out_f, 'w') as outfile:
 		else:
 			infile = open(blast_f)
 		for line in infile:
-			if blast_f[-3:] == ".gz": line = str(line, encoding='utf8')
+			if blast_f[-3:] == ".gz": line = line.decode('utf-8')
 			line = line.split()
 			blast_list.append(line[0])
 		infile.close()

@@ -51,7 +51,7 @@ else:
 prev_line = []
 output_read = False
 for line in infile:
-	if gzipped_in == True: line = str(line, encoding='utf8')
+	if gzipped_in == True: line = line.decode('utf-8')
 	splitline = line.split("\t")
 	if splitline[0][:1] == "@":
 		# First line for a read

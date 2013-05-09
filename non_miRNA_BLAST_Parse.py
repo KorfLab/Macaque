@@ -51,7 +51,7 @@ o2_file = "miRNA_analysis/FASTq_files_new/non_miRNA_reads_mapped.txt"
 small_rna_dict = {}
 with gzip.open(ref_file, 'rb') as infile:
 	for line in infile:
-		line = str(line, encoding='utf8')
+		line = line.decode('utf-8')
 		if line[0:1] == ">":
 			line = line.split(" ")
 			seq_name = line[0][1:]
@@ -77,7 +77,7 @@ with open(o_file, 'w') as outfile:
 			fasta_read_list = []
 			with gzip.open(fasta_file, 'rb') as infile:
 				for line in infile:
-					line = str(line, encoding='utf8')
+					line = line.decode('utf-8')
 					line = line.rstrip()
 					if line[0:1] == ">":
 						fasta_read_list.append(line[1:])
@@ -94,7 +94,7 @@ with open(o_file, 'w') as outfile:
 			prev_read_name = ""
 			with gzip.open(blast_file, 'rb') as infile:
 				for line in infile:
-					line = str(line, encoding='utf8')
+					line = line.decode('utf-8')
 					line = line.split("\t")
 					read_name = line[0]
 					blast_read_list.append(read_name)

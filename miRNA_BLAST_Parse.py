@@ -26,7 +26,7 @@ read_gene_family_count = {}
 prev_read_name = ""
 with gzip.open(i_file, 'rb') as infile:
 	for line in infile:
-		line = str(line, encoding='utf8')
+		line = line.decode('utf-8')
 		line = line.split("\t")
 		read_name = line[0]
 		match = recomp.match(line[1])
